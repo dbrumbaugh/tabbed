@@ -1,0 +1,8 @@
+xembed
+tabbed
+*.o
+*.rej
+*.orig
+.ccls
+.ccls-cache
+config.h
