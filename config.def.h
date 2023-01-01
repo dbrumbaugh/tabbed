@@ -39,23 +39,23 @@ static Bool npisrelative  = False;
 ResourcePref resources[] = {
 		{ "font",         STRING,  &font },
 		{ "color0",       STRING,  &normbgcolor },
-		{ "color4",       STRING,  &normfgcolor },
+		{ "color7",       STRING,  &normfgcolor },
 		{ "color4",       STRING,  &selbgcolor },
-		{ "color7",       STRING,  &selfgcolor },
-		{ "color2",       STRING,  &urgbgcolor },
-		{ "color3",       STRING,  &urgfgcolor },
+		{ "color15",       STRING,  &selfgcolor },
+		{ "color3",       STRING,  &urgbgcolor },
+		{ "color15",       STRING,  &urgfgcolor },
 };
 
-#define MODKEY ControlMask
+#define MODKEY ControlMask|Mod1Mask
 static const Key keys[] = {
 	/* modifier             key        function     argument */
-	{ MODKEY|ShiftMask,     XK_Return, focusonce,   { 0 } },
-	{ MODKEY|ShiftMask,     XK_Return, spawn,       { 0 } },
+	{ MODKEY,               XK_Return, focusonce,   { 0 } },
+	{ MODKEY,               XK_Return, spawn,       { 0 } },
 
-	{ MODKEY|ShiftMask,     XK_l,      rotate,      { .i = +1 } },
-	{ MODKEY|ShiftMask,     XK_h,      rotate,      { .i = -1 } },
-	{ MODKEY|ShiftMask,     XK_j,      movetab,     { .i = -1 } },
-	{ MODKEY|ShiftMask,     XK_k,      movetab,     { .i = +1 } },
+	{ MODKEY,               XK_l,      rotate,      { .i = +1 } },
+	{ MODKEY,               XK_h,      rotate,      { .i = -1 } },
+	{ MODKEY|ShiftMask,     XK_h,      movetab,     { .i = -1 } },
+	{ MODKEY|ShiftMask,     XK_l,      movetab,     { .i = +1 } },
 	{ MODKEY,               XK_Tab,    rotate,      { .i = 0 } },
 
 	{ MODKEY,               XK_grave,  spawn,       SETPROP("_TABBED_SELECT_TAB") },
@@ -71,9 +71,18 @@ static const Key keys[] = {
 	{ MODKEY,               XK_0,      move,        { .i = 9 } },
 
 	{ MODKEY,               XK_q,      killclient,  { 0 } },
-
 	{ MODKEY,               XK_u,      focusurgent, { 0 } },
 	{ MODKEY|ShiftMask,     XK_u,      toggle,      { .v = (void*) &urgentswitch } },
-
 	{ 0,                    XK_F11,    fullscreen,  { 0 } },
+
+	{ ControlMask,          XK_Alt_L,  showbar,     { .i = 1 } },
+	{ ControlMask,          XK_Alt_R,  showbar,     { .i = 1 } },
+};
+
+static Key keyreleases[] = {
+	/* modifier             key          function     argument */
+	{ MODKEY,          XK_Alt_L,  showbar,     { .i = 0 } },
+	{ MODKEY,          XK_Alt_R,  showbar,     { .i = 0 } },
+	{ MODKEY,          XK_Control_L,  showbar,     { .i = 0 } },
+	{ MODKEY,          XK_Control_R,  showbar,     { .i = 0 } },
 };
