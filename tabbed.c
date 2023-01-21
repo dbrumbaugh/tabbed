@@ -326,6 +326,7 @@ configurerequest(const XEvent *e)
 		wc.stack_mode = ev->detail;
 		XConfigureWindow(dpy, clients[c]->win, ev->value_mask, &wc);
 	}
+    resize(sel, ww, wh - bh);
 }
 
 void
