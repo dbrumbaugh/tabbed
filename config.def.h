@@ -53,13 +53,13 @@ static const Key keys[] = {
 	{ MODKEY,               XK_Return, spawn,       { 0 } },
 
 	{ MODKEY,               XK_l,      rotate,      { .i = +1 } },
-	{ MODKEY,               XK_Right,      rotate,      { .i = +1 } },
+	{ MODKEY,               XK_Right,  rotate,      { .i = +1 } },
 	{ MODKEY,               XK_h,      rotate,      { .i = -1 } },
-	{ MODKEY,               XK_Left,      rotate,      { .i = -1 } },
+	{ MODKEY,               XK_Left,   rotate,      { .i = -1 } },
 	{ MODKEY|ShiftMask,     XK_h,      movetab,     { .i = -1 } },
-	{ MODKEY|ShiftMask,     XK_Left,      movetab,     { .i = -1 } },
+	{ MODKEY|ShiftMask,     XK_Left,   movetab,     { .i = -1 } },
 	{ MODKEY|ShiftMask,     XK_l,      movetab,     { .i = +1 } },
-	{ MODKEY|ShiftMask,     XK_Right,      movetab,     { .i = +1 } },
+	{ MODKEY|ShiftMask,     XK_Right,  movetab,     { .i = +1 } },
 	{ MODKEY,               XK_Tab,    rotate,      { .i = 0 } },
 
 	{ MODKEY,               XK_grave,  spawn,       SETPROP("_TABBED_SELECT_TAB") },
